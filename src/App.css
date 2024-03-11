@@ -1,42 +1,152 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  display: grid;
+  /* grid-template-columns: 1fr; */
+  /* grid-template-rows: repeat(4, 1fr); */
+  grid-template-areas: 
+  'logo'
+  'header'
+  'nav'
+  'content';
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  }
+
+  #header-span {
+    grid-area: header;
+    justify-content: center;
+  }
+
+  #header {
+    margin-block: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: #e42222de;
+    color: #FFF;
+    padding: 0.25rem 0 0.25rem 1rem; 
+  }
+
+/* NC News Logo */
+
+#nc-news-logo {
+  grid-area: logo;
+  height: 3rem;
+  justify-self: left;
+  padding: 0.5rem 0 0.5rem 0;
+}
+
+Logo ,.cls-1 , .cls-2 {
+fill: #fff;
+}
+
+Logo ,.cls-2 {
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+font-weight: bold;
+font-size:194px;
+}
+
+Logo ,.cls-3 {
+  fill: #1d1d1b;
+}
+
+/* Navbar */
+
+#navbar {
+  justify-content: center;
+  grid-area: nav;
+  justify-self: center;
+}
+
+#navbar > ol {
+  list-style-type: none;
+  background-color: #dddddd;
+  padding: 1rem 0 1rem 0;
+  overflow: hidden;
+}
+
+#navbar > ol > li{
+  float: left;
+}
+
+#navbar > ol > li > a{
+  display: inline;
+  color: black;
   text-align: center;
+  padding: 2rem 2rem;
+  text-decoration: none;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+#navbar > ol > li > a:hover {
+  background-color: #e42222de;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.dropdown {
+  float: left;
+  overflow: hidden;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.dropdown .dropbtn {
+  border: none;
+  background-color: #dddddd;
+  outline: none;
+  text-decoration: none;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: black;
+  padding: 2rem 2rem;
+ }
+
+/* Add a grey background color to dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #e42222de;
 }
 
-.card {
-  padding: 2em;
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
 }
 
-.read-the-docs {
-  color: #888;
+.dropdown-content .dropdown-links {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  display: block;
+  text-align: left;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Articles */
+
+#content{
+  padding-top: 0.1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+#articles{
+  justify-self: center;
+  display: grid;
+  flex-direction:column;
+}
+
+.article-card{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  padding: 1rem 1rem 0.5rem 1rem;
+  justify-self: left;
+  border-top: 0.1em solid rgb(219, 219, 219);
+}
+
+.article-img {
+  height: 20rem;
+  width: 30rem;
 }
