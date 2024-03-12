@@ -27,3 +27,15 @@ export const patchArticleVotes = (endpoint, patchVal) =>{
         return data
     })
 }
+
+export const postComment = (endpoint, comment, user) =>{
+    const postBody = {
+        body: comment,
+        votes: 0,
+        author: user,
+    }
+    return NcNewsApi.post(endpoint, postBody)
+    .then(({data})=>{
+        return data
+    })
+}
