@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 const ArticleCard = (props) => {
     const {articlesArr} = props
 
@@ -6,9 +8,9 @@ const ArticleCard = (props) => {
         const {article_id,article_img_url, title, topic, author, created_at, votes, comment_count} = article
         return (
             <div className="article-card" key={article_id}>
-                <h2>{title}</h2>
-                <p>#{topic}</p>
-                <img src={article_img_url} className="article-img"/>
+                <Link to={`/articles/${topic}/${article_id}`} className="article-card-title"><h2 >{title}</h2></Link>
+                <Link to={`/articles/${topic}`} className="article-topic-link"><p>#{topic}</p></Link>
+                <Link to={`/articles/${topic}/${article_id}`}><img src={article_img_url} className="article-img"/></Link>
                 <p>Author: {author}</p>
                 <p>Created at: {created_at}</p>
                 <p>Votes: {votes} | Comments: {comment_count}</p>
