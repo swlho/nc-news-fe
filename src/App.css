@@ -179,6 +179,12 @@ padding-left: 15vw;
   font-size: 1rem;
 }
 
+/* Comments */
+
+.comment-card {
+  border-top: 1px solid grey;
+}
+
 @media all and (max-width: 932px) {
 
   .article-page > h3 {

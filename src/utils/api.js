@@ -14,6 +14,6 @@ export const getData = (endpoint, topic) => {
 export const getDataByArticleId = (endpoint) => {
     return NcNewsApi.get(endpoint)
     .then(({data})=>{
-        return data.article
+        return data
     })
 }
