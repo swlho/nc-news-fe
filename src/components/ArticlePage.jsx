@@ -1,4 +1,5 @@
 import Comments from './Comments'
+import ArticleVotes from './ArticleVotes'
 import {useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom'
 import { getDataByArticleId } from '../utils/api'
@@ -7,8 +8,9 @@ const ArticlePage = () => {
 
     const { article_id } = useParams();
     const [article, setArticle]= useState({})
+    const [articleVotes, setArticleVotes] = useState(0)
     const [isLoading, setIsLoading] = useState(true)
-    const {title, topic, article_img_url, author, body, created_at, votes, comment_count} = article
+    const {title, topic, article_img_url, author, body, created_at, comment_count} = article
 
     useEffect(() => {
         setIsLoading(true)
@@ -16,6 +18,7 @@ const ArticlePage = () => {
         .then(({article})=>{
           setIsLoading(false)
           setArticle(article)
+          setArticleVotes(article.votes)
         })
   }, [article_id])
 
@@ -30,7 +33,7 @@ const ArticlePage = () => {
             <img src={`${article_img_url}`} className='article-img'></img>
             <p className='article-body'>{body}</p>
             <p>Tag: #{topic}</p>
-            <p>Votes: {votes}</p>
+            <ArticleVotes article_id={article_id} articleVotes={articleVotes} setArticleVotes={setArticleVotes}/>
             <h4>Comment on this article</h4>
             <p>[COMMENT BOX HERE]</p>
             <Comments article_id={article_id} comment_count = {comment_count}/>
