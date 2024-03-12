@@ -1,3 +1,4 @@
+import Comments from './Comments'
 import {useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom'
 import { getDataByArticleId } from '../utils/api'
@@ -12,7 +13,7 @@ const ArticlePage = () => {
     useEffect(() => {
         setIsLoading(true)
         getDataByArticleId(`/articles/${article_id}`)
-        .then((article)=>{
+        .then(({article})=>{
           setIsLoading(false)
           setArticle(article)
         })
@@ -30,8 +31,9 @@ const ArticlePage = () => {
             <p className='article-body'>{body}</p>
             <p>Tag: #{topic}</p>
             <p>Votes: {votes}</p>
-            <p>Comments: {comment_count}</p>
             <h4>Comment on this article</h4>
+            <p>[COMMENT BOX HERE]</p>
+            <Comments article_id={article_id} comment_count = {comment_count}/>
         </div>
     )
 }
