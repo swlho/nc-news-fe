@@ -10,3 +10,10 @@ export const getData = (endpoint, topic) => {
         return data
     })
 }
+
+export const getDataByArticleId = (endpoint) => {
+    return NcNewsApi.get(endpoint)
+    .then(({data})=>{
+        return data.article
+    })
+}
