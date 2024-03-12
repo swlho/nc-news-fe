@@ -3,10 +3,10 @@
   /* grid-template-columns: 1fr; */
   /* grid-template-rows: repeat(4, 1fr); */
   grid-template-areas: 
-  'logo'
-  'header'
-  'nav'
-  'content';
+  'logo signin'
+  'header header'
+  'nav nav'
+  'content content';
   grid-column-gap: 0px;
   grid-row-gap: 0px;
   }
@@ -23,6 +23,7 @@
     color: #FFF;
     padding: 0.25rem 0 0.25rem 1.2rem; 
   }
+
 
 /* NC News Logo */
 
@@ -45,6 +46,12 @@ font-size:194px;
 
 Logo ,.cls-3 {
   fill: #1d1d1b;
+}
+
+/* Sign-in button */
+
+.sign-in-button {
+  grid-area: signin;
 }
 
 /* Navbar */

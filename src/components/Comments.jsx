@@ -3,8 +3,7 @@ import { getDataByArticleId } from '../utils/api'
 import CommentCard from './CommentCard'
 
 const Comments =(props)=>{
-    const {article_id, comment_count} = props
-    const [commentsArr, setCommentsArr]= useState([])
+    const {article_id, commentCount, commentsArr, setCommentsArr} = props
     const [isLoading, setIsLoading] = useState(true)
     
     useEffect(() => {
@@ -21,7 +20,7 @@ const Comments =(props)=>{
         <p>LOADING...</p>
      : 
     <>
-    <p>{comment_count} Comments:</p>
+    <p>{commentCount} Comments:</p>
     <CommentCard commentsArr={commentsArr}/>
     </>
     )
