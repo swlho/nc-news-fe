@@ -17,3 +17,13 @@ export const getDataByArticleId = (endpoint) => {
         return data
     })
 }
+
+export const patchArticleVotes = (endpoint, patchVal) =>{
+    const patchBody = {
+            inc_votes: patchVal
+    };
+    return NcNewsApi.patch(endpoint, patchBody)
+    .then(({data})=>{
+        return data
+    })
+}
