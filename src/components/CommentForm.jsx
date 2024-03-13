@@ -1,24 +1,39 @@
 import UserContext from '../context/UserContext';
+import ArticleContext from '../context/ArticleContext';
 import {useState, useContext} from 'react'
 import { postComment } from '../utils/api';
 
-const CommentForm = (props) =>{
-    const {article_id, setCommentsArr, setCommentCount} = props
+const CommentForm = () =>{
+    const {article_id, setCommentsArr, setCommentCount, setCommentId} = useContext(ArticleContext)
     const { signedIn, loggedInUser } = useContext(UserContext)
     const [commentBoxText, setCommentBoxText] = useState('')
+    const [error, setError] = useState(null)
 
     const handleSubmit = (event) =>{
         event.preventDefault();
-        setCommentBoxText('')
-        const date = new Date()
-        setCommentsArr((currComments)=>{
-            return [{body:commentBoxText, author: loggedInUser.username, votes: 0, created_at: `${date.toISOString()}`},...currComments]
-        })
-        setCommentCount((currCommentCount)=>{
-            return currCommentCount + 1
-        })
+        setCommentBoxText('Posting... please wait')
         postComment(`articles/${article_id}/comments`, commentBoxText, loggedInUser.username)
+        .then(({comment})=>{
+            const {author, body, comment_id, created_at, votes} = comment
+            setCommentBoxText('')
+            setCommentCount((currCommentCount)=>{
+                return currCommentCount + 1
+            })
+            setCommentId(comment_id)
+            setCommentsArr((currComments)=>{
+                return [{body:body, author: author, votes: votes, created_at: created_at},...currComments]
+            })
+            console.log(comment)
+        })
+        .catch((err)=>{
+            setCommentBoxText('')
+            setError({err})
+        })
     }
+
+if (error) {
+    return <ErrorComponent/>
+}
 
 return (
     signedIn ? 

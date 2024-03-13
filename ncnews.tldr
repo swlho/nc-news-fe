@@ -66,9 +66,9 @@
 		{
 			"id": "pointer:pointer",
 			"typeName": "pointer",
-			"x": 5241.765706005243,
-			"y": 1522.3546210822997,
-			"lastActivityTimestamp": 1710238813989,
+			"x": 5473.870556278237,
+			"y": 841.8615087889752,
+			"lastActivityTimestamp": 1710321755456,
 			"meta": {}
 		},
 		{
@@ -79,9 +79,9 @@
 			"typeName": "page"
 		},
 		{
-			"x": -3987.2398977396597,
-			"y": -559.847071402273,
-			"z": 0.5205153976886218,
+			"x": -3981.6200999511684,
+			"y": -314.72206815322704,
+			"z": 0.3813032843028917,
 			"meta": {},
 			"id": "camera:page:page",
 			"typeName": "camera"
@@ -90,7 +90,7 @@
 			"editingShapeId": null,
 			"croppingShapeId": null,
 			"selectedShapeIds": [],
-			"hoveredShapeId": null,
+			"hoveredShapeId": "shape:iB4Qx2CbvdSEy2cvzGaUD",
 			"erasingShapeIds": [],
 			"hintingShapeIds": [],
 			"focusedGroupId": null,
@@ -124,7 +124,7 @@
 				"x": 0,
 				"y": 0,
 				"w": 1872,
-				"h": 896
+				"h": 869
 			},
 			"insets": [
 				false,
@@ -7011,8 +7011,8 @@
 			"typeName": "shape"
 		},
 		{
-			"x": 7068.047495802815,
-			"y": 847.7822024676116,
+			"x": 7652.883790637502,
+			"y": 1309.3570360591125,
 			"rotation": 0,
 			"isLocked": false,
 			"opacity": 1,
@@ -7374,15 +7374,15 @@
 			"typeName": "shape"
 		},
 		{
-			"x": 4704.600768973823,
-			"y": 605.7795148399248,
+			"x": 5077.007736985147,
+			"y": 511.36648069620867,
 			"rotation": 0,
 			"isLocked": false,
 			"opacity": 1,
 			"meta": {},
 			"type": "arrow",
 			"parentId": "page:page",
-			"index": "b1gV",
+			"index": "b1rG",
 			"props": {
 				"dash": "draw",
 				"size": "l",
@@ -7392,20 +7392,20 @@
 				"bend": 0,
 				"start": {
 					"type": "binding",
-					"boundShapeId": "shape:aibCD19ZG0BC4I4paMwlh",
+					"boundShapeId": "shape:-W47j4nMJtF8-KeVaZfW8",
 					"normalizedAnchor": {
-						"x": 0.5857684157742756,
-						"y": 0.48364490117658193
+						"x": 0.5,
+						"y": 0.5
 					},
-					"isPrecise": false,
+					"isPrecise": true,
 					"isExact": false
 				},
 				"end": {
 					"type": "binding",
 					"boundShapeId": "shape:8MaQtuvoP9Jvf2ANlpqo-",
 					"normalizedAnchor": {
-						"x": 0.7333072724387096,
-						"y": 0.5135165179486808
+						"x": 0.5342633877239155,
+						"y": 0.4047521360666871
 					},
 					"isPrecise": false,
 					"isExact": false

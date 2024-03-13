@@ -1,9 +1,10 @@
-import {useState, useEffect} from 'react'
+import {useState, useEffect, useContext} from 'react'
+import ArticleContext from '../context/ArticleContext'
 import { getDataByArticleId } from '../utils/api'
 import CommentCard from './CommentCard'
 
-const Comments =(props)=>{
-    const {article_id, commentCount, commentsArr, setCommentsArr} = props
+const Comments =()=>{
+    const {article_id, commentCount, commentsArr, setCommentsArr} = useContext(ArticleContext)
     const [isLoading, setIsLoading] = useState(true)
     
     useEffect(() => {

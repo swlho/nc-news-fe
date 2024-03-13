@@ -4,6 +4,7 @@ import CommentForm from './CommentForm'
 import {useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom'
 import { getDataByArticleId } from '../utils/api'
+import ArticleContext from '../context/ArticleContext'
 
 const ArticlePage = () => {
 
@@ -14,6 +15,7 @@ const ArticlePage = () => {
     const {title, topic, article_img_url, author, body, created_at} = article
     const [commentsArr, setCommentsArr]= useState([])
     const [commentCount, setCommentCount] = useState()
+    const [commentId, setCommentId] = useState()
 
     useEffect(() => {
         setIsLoading(true)
@@ -37,9 +39,11 @@ const ArticlePage = () => {
             <img src={`${article_img_url}`} className='article-img'></img>
             <p className='article-body'>{body}</p>
             <p>Tag: #{topic}</p>
-            <ArticleVotes article_id={article_id} articleVotes={articleVotes} setArticleVotes={setArticleVotes}/>
-            <p><CommentForm article_id={article_id} setCommentsArr={setCommentsArr} setCommentCount={setCommentCount}/></p>
-            <Comments article_id={article_id} commentCount = {commentCount} commentsArr={commentsArr} setCommentsArr={setCommentsArr}/>
+            <ArticleContext.Provider value={{article_id:article_id, articleVotes:articleVotes, setArticleVotes:setArticleVotes, setCommentsArr:setCommentsArr, setCommentCount:setCommentCount,commentCount:commentCount, commentsArr:commentsArr, commentId:commentId,setCommentId:setCommentId}}>
+                <ArticleVotes />
+                <CommentForm />
+                <Comments />
+            </ArticleContext.Provider>
         </div>
     )
 }

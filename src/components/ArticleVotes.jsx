@@ -1,7 +1,9 @@
 import { patchArticleVotes } from '../utils/api'
+import { useContext } from 'react'
+import ArticleContext from '../context/ArticleContext'
 
-const ArticleVotes = (props) => {
-    const {article_id, articleVotes, setArticleVotes} = props
+const ArticleVotes = () => {
+    const {article_id, articleVotes, setArticleVotes} = useContext(ArticleContext)
     
     const changeArticleVotes = ({target}) =>{
         const patchVal = +target.attributes.incrementvalue.value
