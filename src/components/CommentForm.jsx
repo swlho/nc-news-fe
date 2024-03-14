@@ -3,9 +3,9 @@ import ArticleContext from '../context/ArticleContext';
 import {useState, useContext} from 'react'
 import { postComment } from '../utils/api';
 
-const CommentForm = () =>{
-    const {article_id, setCommentsArr, setCommentCount, setCommentId} = useContext(ArticleContext)
+const CommentForm = (props) =>{
     const { signedIn, loggedInUser } = useContext(UserContext)
+    const {article_id, setCommentsArr, setCommentCount} = props
     const [commentBoxText, setCommentBoxText] = useState('')
     const [error, setError] = useState(null)
 
@@ -19,11 +19,9 @@ const CommentForm = () =>{
             setCommentCount((currCommentCount)=>{
                 return currCommentCount + 1
             })
-            setCommentId(comment_id)
             setCommentsArr((currComments)=>{
-                return [{body:body, author: author, votes: votes, created_at: created_at},...currComments]
+                return [{comment_id:comment_id,body:body, author: author, votes: votes, created_at: created_at},...currComments]
             })
-            console.log(comment)
         })
         .catch((err)=>{
             setCommentBoxText('')

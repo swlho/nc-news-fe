@@ -1,10 +1,11 @@
 import UserContext from '../context/UserContext';
 import {useContext} from 'react'
 import CommentDeleteButton from './CommentDeleteButton';
+import ArticleContext from '../context/ArticleContext';
 
 const CommentCard = (props) => {
-    const {commentsArr} = props
-    const { signedIn, loggedInUser, commentId } = useContext(UserContext)
+    const { signedIn, loggedInUser} = useContext(UserContext)
+    const {commentsArr, setCommentsArr, setCommentCount} = props
 
     const commentCardsMap = commentsArr.map((comment)=>{
         const {comment_id, body, author, votes, created_at} = comment
@@ -14,7 +15,7 @@ const CommentCard = (props) => {
                 <div className="comment-card" key={comment_id}>
                     <p>{author} commented at {created_at}</p>
                     <p>{body}</p>
-                    <CommentDeleteButton commentId={commentId}/>
+                    <CommentDeleteButton comment_id={comment_id} setCommentsArr={setCommentsArr} setCommentCount={setCommentCount}/>
                     <p><button>⬆️</button> {votes} <button>⬇️</button></p>
                 </div>
             )

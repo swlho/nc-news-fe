@@ -41,6 +41,5 @@ export const postComment = (endpoint, comment, user) =>{
 }
 
 export const deleteComment = (endpoint) =>{
-    console.log(endpoint)
     return NcNewsApi.delete(endpoint)
 }

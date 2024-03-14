@@ -1,11 +1,12 @@
-import {useState, useEffect, useContext} from 'react'
-import ArticleContext from '../context/ArticleContext'
+import {useState, useEffect} from 'react'
 import { getDataByArticleId } from '../utils/api'
 import CommentCard from './CommentCard'
+import CommentForm from './CommentForm'
 
-const Comments =()=>{
-    const {article_id, commentCount, commentsArr, setCommentsArr} = useContext(ArticleContext)
+const Comments =(props)=>{
+    const {article_id, commentCount, setCommentCount} = props
     const [isLoading, setIsLoading] = useState(true)
+    const [commentsArr, setCommentsArr]= useState([])
     
     useEffect(() => {
         setIsLoading(true)
@@ -17,12 +18,13 @@ const Comments =()=>{
   }, [])
 
     return (
-        isLoading? 
-        <p>LOADING...</p>
-     : 
+      isLoading? 
+      <p>LOADING...</p>
+      : 
     <>
+    <CommentForm article_id={article_id} setCommentsArr = {setCommentsArr} setCommentCount={setCommentCount}/>
     <p>{commentCount} Comments:</p>
-    <CommentCard commentsArr={commentsArr}/>
+    <CommentCard commentsArr = {commentsArr} setCommentsArr={setCommentsArr} setCommentCount={setCommentCount}/>
     </>
     )
 }

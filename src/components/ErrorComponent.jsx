@@ -1,8 +1,7 @@
 const ErrorComponent = () => {
     
-    const errorAlert = alert("Something went wrong! Try again")
+    return <p>Something went wrong! Try again</p>
     
-    return {errorAlert}
 }
 
 export default ErrorComponent
