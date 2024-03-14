@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import { getData } from '../utils/api'
 import { showSortCategory } from '../utils/showSortCategory'
 import ArticleCard from "./ArticleCard"
+import ErrorApiPage from './ErrorApiPage'
 
 const Articles = (props) =>{
     const { topic } = useParams();
@@ -22,7 +23,7 @@ const Articles = (props) =>{
     }, [topic, sortByCategory, orderBy])
 
     if(error){
-        return <ErrorComponent message={error.errorMsg}/>
+        return <ErrorApiPage error={error}/>
     }
 
     return (

@@ -12,7 +12,6 @@ export const getData = (endpoint, topic, sortByCategory, orderBy) => {
             return data
         })
     } else {
-        console.log(topic, sortByCategory,orderBy)
         return NcNewsApi.get(endpoint, {params:{topic:topic,sort_by:sortByCategory,order:orderBy}})
         .then(({data})=>{
             return data
@@ -21,6 +20,7 @@ export const getData = (endpoint, topic, sortByCategory, orderBy) => {
 }
 
 export const getDataByArticleId = (endpoint) => {
+    console.log(endpoint)
     return NcNewsApi.get(endpoint)
     .then(({data})=>{
         return data

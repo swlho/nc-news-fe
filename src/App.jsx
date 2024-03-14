@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Navbar from "./components/Navbar";
 import ArticlePage from "./components/ArticlePage";
 import FrontPage from "./components/FrontPage";
+import ErrorRoutePage from "./components/ErrorRoutePage";
 import UserContext from './context/UserContext';
 import {useState} from 'react'
 import SignInButton from "./components/SignInButton";
@@ -29,6 +30,7 @@ function App() {
 			<SignInButton/>
 			<div id="content">
 				<Routes>
+					<Route path="*" element={<ErrorRoutePage/>}/>
 					<Route path="/" element={<FrontPage />} />
 					<Route path="/articles" element={<ArticlesIndexPage />} />
 					<Route path="/articles/:topic" element={<ArticlesIndexPage />} />

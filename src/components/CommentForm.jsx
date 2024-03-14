@@ -1,6 +1,7 @@
 import UserContext from '../context/UserContext';
 import {useState, useContext} from 'react'
 import { postComment } from '../utils/api';
+import ErrorApiPage from './ErrorApiPage';
 
 const CommentForm = (props) =>{
     const { signedIn, loggedInUser } = useContext(UserContext)
@@ -28,9 +29,9 @@ const CommentForm = (props) =>{
         })
     }
 
-if (error) {
-    return <ErrorComponent/>
-}
+    if(error){
+        return <ErrorApiPage error={error}/>
+    }
 
 return (
     signedIn ? 
