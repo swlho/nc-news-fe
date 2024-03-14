@@ -1,15 +1,34 @@
+import UserContext from '../context/UserContext';
+import {useContext} from 'react'
+import CommentDeleteButton from './CommentDeleteButton';
+import ArticleContext from '../context/ArticleContext';
+
 const CommentCard = (props) => {
-    const {commentsArr} = props
+    const { signedIn, loggedInUser} = useContext(UserContext)
+    const {commentsArr, setCommentsArr, setCommentCount} = props
 
     const commentCardsMap = commentsArr.map((comment)=>{
         const {comment_id, body, author, votes, created_at} = comment
-        return (
-            <div className="comment-card" key={comment_id}>
-                <p>{author} commented at {created_at}</p>
-                <p>{body}</p>
-                <p><button>⬆️</button> {votes} <button>⬇️</button></p>
-            </div>
-        )
+        
+        if(signedIn && author===loggedInUser.username){
+            return (
+                <div className="comment-card" key={comment_id}>
+                    <p>{author} commented at {created_at}</p>
+                    <p>{body}</p>
+                    <CommentDeleteButton comment_id={comment_id} setCommentsArr={setCommentsArr} setCommentCount={setCommentCount}/>
+                    <p><button>⬆️</button> {votes} <button>⬇️</button></p>
+                </div>
+            )
+        } else {
+            return (
+                <div className="comment-card" key={comment_id}>
+                    <p>{author} commented at {created_at}</p>
+                    <p>{body}</p>
+                    <p><button>⬆️</button> {votes} <button>⬇️</button></p>
+                </div>
+            )
+        }
+
     })
 
     return (

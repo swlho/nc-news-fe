@@ -39,3 +39,7 @@ export const postComment = (endpoint, comment, user) =>{
         return data
     })
 }
+
+export const deleteComment = (endpoint) =>{
+    return NcNewsApi.delete(endpoint)
+}
