@@ -6,6 +6,7 @@ import ErrorApiPage from './ErrorApiPage'
 const FeaturedArticles = () => {
     const [articlesArr, setArticlesArr]= useState([]);
     const [isLoading, setIsLoading] = useState(true)
+    const [error,setError] = useState(null)
 
     useEffect(() => {
         setIsLoading(true)

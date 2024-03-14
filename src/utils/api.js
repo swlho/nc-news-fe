@@ -5,22 +5,13 @@ const NcNewsApi = axios.create({
 })
 
 export const getData = (endpoint, topic, sortByCategory, orderBy) => {
-    
-    if(!topic){
-        return NcNewsApi.get(endpoint, {params: {sort_by:sortByCategory,order:orderBy}})
-        .then(({data})=>{
-            return data
-        })
-    } else {
-        return NcNewsApi.get(endpoint, {params:{topic:topic,sort_by:sortByCategory,order:orderBy}})
-        .then(({data})=>{
-            return data
-        })
-    }
+    return NcNewsApi.get(endpoint, {params:{topic:topic,sort_by:sortByCategory,order:orderBy}})
+    .then(({data})=>{
+        return data
+    })
 }
 
 export const getDataByArticleId = (endpoint) => {
-    console.log(endpoint)
     return NcNewsApi.get(endpoint)
     .then(({data})=>{
         return data
