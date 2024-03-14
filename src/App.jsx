@@ -3,12 +3,12 @@ import "./App.css";
 import Logo from "./components/Logo";
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
-import Articles from "./components/Articles";
 import ArticlePage from "./components/ArticlePage";
 import FrontPage from "./components/FrontPage";
 import UserContext from './context/UserContext';
 import {useState} from 'react'
 import SignInButton from "./components/SignInButton";
+import ArticlesIndexPage from "./components/ArticlesIndexPage";
 
 function App() {
 
@@ -30,8 +30,8 @@ function App() {
 			<div id="content">
 				<Routes>
 					<Route path="/" element={<FrontPage />} />
-					<Route path="/articles" element={<Articles />} />
-					<Route path="/articles/:topic" element={<Articles />} />
+					<Route path="/articles" element={<ArticlesIndexPage />} />
+					<Route path="/articles/:topic" element={<ArticlesIndexPage />} />
 					<Route path="/articles/:topic/:article_id" element={<ArticlePage />} />
 				</Routes>
 			</div>
