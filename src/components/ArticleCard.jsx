@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import { isoStringToDate } from "../utils/isoStringToDate"
 
 const ArticleCard = (props) => {
     const {articlesArr} = props
@@ -12,7 +13,7 @@ const ArticleCard = (props) => {
                 <Link to={`/articles/${topic}`} className="article-topic-link"><p>#{topic}</p></Link>
                 <Link to={`/articles/${topic}/${article_id}`}><img src={article_img_url} className="article-img"/></Link>
                 <p>Author: {author}</p>
-                <p>Created at: {created_at}</p>
+                <p>Created at: {isoStringToDate(created_at)}</p>
                 <p>Votes: {votes} | Comments: {comment_count}</p>
             </div>
         )

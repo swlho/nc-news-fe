@@ -4,11 +4,20 @@ const NcNewsApi = axios.create({
     baseURL: 'https://nc-news-836l.onrender.com/api'
 })
 
-export const getData = (endpoint, topic) => {
-    return NcNewsApi.get(endpoint, {params: {topic}})
-    .then(({data})=>{
-        return data
-    })
+export const getData = (endpoint, topic, sortByCategory, orderBy) => {
+    
+    if(!topic){
+        return NcNewsApi.get(endpoint, {params: {sort_by:sortByCategory,order:orderBy}})
+        .then(({data})=>{
+            return data
+        })
+    } else {
+        console.log(topic, sortByCategory,orderBy)
+        return NcNewsApi.get(endpoint, {params:{topic:topic,sort_by:sortByCategory,order:orderBy}})
+        .then(({data})=>{
+            return data
+        })
+    }
 }
 
 export const getDataByArticleId = (endpoint) => {

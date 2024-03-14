@@ -1,5 +1,4 @@
 import UserContext from '../context/UserContext';
-import ArticleContext from '../context/ArticleContext';
 import {useState, useContext} from 'react'
 import { postComment } from '../utils/api';
 
