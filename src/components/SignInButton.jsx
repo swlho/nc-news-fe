@@ -17,9 +17,9 @@ const SignInButton = () =>{
 	}
 
 return (
-    <div className="sign-in-button">
-<button onClick={handleSignIn}>{signedIn ? "Sign out":"Sign in"}</button>
+    <div className="sign-in-button-container">
 <SignedInMsg signedIn={signedIn}/>
+<button id="signin-button" onClick={handleSignIn}>{signedIn ? "Sign out":"Sign in"}</button>
     </div>
 )
 }

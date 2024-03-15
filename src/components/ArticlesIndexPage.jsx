@@ -9,10 +9,10 @@ const ArticlesIndexPage = () => {
     const [orderBy, setOrderBy] = useState('asc')
 
     return (
-    <>
+    <div id="articles-index-page">
     <SortBy setSortByCategory={setSortByCategory} setOrderBy={setOrderBy} setIsLoading={setIsLoading}/>
     <Articles articlesArr={articlesArr} setArticlesArr={setArticlesArr}isLoading={isLoading} setIsLoading={setIsLoading}sortByCategory={sortByCategory} orderBy={orderBy}/>
-    </>
+    </div>
     )
 }
 

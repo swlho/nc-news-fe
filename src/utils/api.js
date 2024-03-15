@@ -43,3 +43,13 @@ export const postComment = (endpoint, comment, user) =>{
 export const deleteComment = (endpoint) =>{
     return NcNewsApi.delete(endpoint)
 }
+
+export const patchCommentVotes = (endpoint, patchVal) =>{
+    const patchBody = {
+            inc_votes: patchVal
+    };
+    return NcNewsApi.patch(endpoint, patchBody)
+    .then(({data})=>{
+        return data
+    })
+}

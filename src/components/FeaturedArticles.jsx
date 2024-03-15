@@ -1,6 +1,7 @@
 import {useState, useEffect} from 'react'
 import { getData } from '../utils/api';
-import ArticleCard from './ArticleCard';
+import ArticlePreviewCard from './ArticlePreviewCard';
+import Loading from './Loading';
 import ErrorApiPage from './ErrorApiPage'
 
 const FeaturedArticles = () => {
@@ -8,17 +9,21 @@ const FeaturedArticles = () => {
     const [isLoading, setIsLoading] = useState(true)
     const [error,setError] = useState(null)
 
+    function randomNumber(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+
+    
     useEffect(() => {
-        setIsLoading(true)
-        getData('/articles')
-        .then(({articles})=>{
-          setIsLoading(false)
-          return articles.filter((article)=>{
-            return article.comment_count > 10
-          })
-        })
-        .then((articlesMoreThanTenComments)=>{
-            setArticlesArr(articlesMoreThanTenComments.slice(0,4))
+      setIsLoading(true)
+      getData('/articles')
+      .then(({articles})=>{
+        setIsLoading(false)
+        return articles
+      })
+      .then((articlesRandom)=>{
+          let sliceStartNum = randomNumber(0, articlesRandom.length-3)
+            setArticlesArr(articlesRandom.slice(sliceStartNum,sliceStartNum+3))
         })
         .catch((err)=>{
           setError({err})
@@ -31,9 +36,11 @@ const FeaturedArticles = () => {
 
   return (
     isLoading? (
-        <p>LOADING...</p>
+        <Loading/>
     ) :
-        <ArticleCard articlesArr={articlesArr}/>
+    <div className="frontpage-articles" id='featured-articles'>
+      <ArticlePreviewCard articlesArr={articlesArr}/>
+    </div>
 )
 
 }

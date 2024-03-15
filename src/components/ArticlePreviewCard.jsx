@@ -1,19 +1,18 @@
 import { Link } from "react-router-dom"
 import { isoStringToDate } from "../utils/isoStringToDate"
 
-const ArticleCard = (props) => {
+const ArticlePreviewCard = (props) => {
     const {articlesArr} = props
 
     const articleCardsMap = articlesArr.map((article)=>
     {
-        const {article_id,article_img_url, title, topic, author, created_at, votes, comment_count} = article
+        const {article_id,article_img_url, title, topic, author, created_at, votes, comment_count, body} = article
         return (
-            <div className="article-card" key={article_id}>
+            <div className="article-preview-card" key={article_id}>
                 <Link to={`/articles/${topic}/${article_id}`} className="article-card-title"><h2 >{title}</h2></Link>
-                <Link to={`/articles/${topic}`} className="article-topic-link"><p>#{topic}</p></Link>
+                <p>By {author}</p>
                 <Link to={`/articles/${topic}/${article_id}`}><img src={article_img_url} className="article-img"/></Link>
-                <p>Author: {author}</p>
-                <p>Created at: {isoStringToDate(created_at)}</p>
+                <Link to={`/articles/${topic}`} className="article-topic-link"><p>#{topic}</p></Link>
                 <p>Votes: {votes} | Comments: {comment_count}</p>
             </div>
         )
@@ -26,4 +25,4 @@ const ArticleCard = (props) => {
     )
 }
 
-export default ArticleCard
+export default ArticlePreviewCard

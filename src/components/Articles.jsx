@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import { getData } from '../utils/api'
 import { showSortCategory } from '../utils/showSortCategory'
 import ArticleCard from "./ArticleCard"
+import Loading from './Loading'
 import ErrorApiPage from './ErrorApiPage'
 
 const Articles = (props) =>{
@@ -28,7 +29,7 @@ const Articles = (props) =>{
 
     return (
         isLoading? (
-            <p>LOADING...</p>
+            <Loading/>
         ) :
             <>
             <p>Displaying all {topic ||"available"} articles {showSortCategory(sortByCategory)} in {orderBy} order</p>
