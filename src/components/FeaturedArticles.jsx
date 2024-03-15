@@ -1,10 +1,12 @@
 import {useState, useEffect} from 'react'
 import { getData } from '../utils/api';
 import ArticleCard from './ArticleCard';
+import ErrorApiPage from './ErrorApiPage'
 
 const FeaturedArticles = () => {
     const [articlesArr, setArticlesArr]= useState([]);
     const [isLoading, setIsLoading] = useState(true)
+    const [error,setError] = useState(null)
 
     useEffect(() => {
         setIsLoading(true)
@@ -18,7 +20,14 @@ const FeaturedArticles = () => {
         .then((articlesMoreThanTenComments)=>{
             setArticlesArr(articlesMoreThanTenComments.slice(0,4))
         })
+        .catch((err)=>{
+          setError({err})
+        })
   }, [])
+
+  if(error){
+    return <ErrorApiPage error={error}/>
+}
 
   return (
     isLoading? (

@@ -1,5 +1,6 @@
 import Comments from './Comments'
 import ArticleVotes from './ArticleVotes'
+import ErrorApiPage from './ErrorApiPage'
 import {useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom'
 import { getDataByArticleId } from '../utils/api'
@@ -12,6 +13,7 @@ const ArticlePage = () => {
     const [isLoading, setIsLoading] = useState(true)
     const {title, topic, article_img_url, author, body, created_at} = article
     const [commentCount, setCommentCount] = useState()
+    const [error,setError] = useState(null)
 
     useEffect(() => {
         setIsLoading(true)
@@ -22,7 +24,14 @@ const ArticlePage = () => {
           setArticleVotes(article.votes)
           setCommentCount(article.comment_count)
         })
+        .catch((err)=>{
+            setError({err})
+        })
   }, [article_id])
+
+  if(error){
+    return <ErrorApiPage error={error}/>
+}
 
     return (
     isLoading? 
