@@ -15,7 +15,7 @@ const CommentCardVotes = (props) => {
   }
 
 return (
-    <p><button onClick={(changeCommentVotes)} incrementvalue={1}>⬆️</button> Votes: {commentVotes} <button onClick={(changeCommentVotes)} incrementvalue={-1}>⬇️</button></p>
+    <p><button className="vote-btn" onClick={(changeCommentVotes)} incrementvalue={1}>⬆️</button> Votes: {commentVotes} <button className="vote-btn" onClick={(changeCommentVotes)} incrementvalue={-1}>⬇️</button></p>
 )
 
 }

@@ -13,7 +13,7 @@ const ArticleVotes = (props) => {
   }
 
 return (
-    <p><button onClick={(changeArticleVotes)} incrementvalue={1}>⬆️</button> Votes: {articleVotes} <button onClick={(changeArticleVotes)} incrementvalue={-1}>⬇️</button></p>
+    <p><button className="vote-btn" onClick={(changeArticleVotes)} incrementvalue={1}>⬆️</button> Votes: {articleVotes} <button className="vote-btn" onClick={(changeArticleVotes)} incrementvalue={-1}>⬇️</button></p>
 )
 
 }
