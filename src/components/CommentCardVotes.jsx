@@ -1,7 +1,9 @@
 import { patchCommentVotes } from '../utils/api'
+import { useState } from 'react'
 
 const CommentCardVotes = (props) => {
-    const {comment_id, commentVotes, setCommentVotes} = props
+    const {comment_id, votes} = props
+    const [commentVotes, setCommentVotes] = useState(votes)
 
     const changeCommentVotes = ({target}) =>{
         const patchVal = +target.attributes.incrementvalue.value

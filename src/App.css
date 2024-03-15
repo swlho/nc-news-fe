@@ -1,10 +1,9 @@
 #root {
   display: grid;
   grid-template-areas: 
-  'logo logo'
+  'logo signin'
   'header header'
   'nav nav'
-  '.signin'
   'content content';
   grid-column-gap: 0px;
   grid-row-gap: 0px;
@@ -51,20 +50,21 @@ Logo ,.cls-3 {
 
 .sign-in-button-container {
   grid-area: signin;
-  display: block;
+  display: flex;
   justify-self: right;
-  justify-content: right;
   margin-top: 0.5rem;
   margin-right: 3rem;
 }
 
 #signin-button {
   width:5rem;
+  height:2rem;
   resize: none;
 }
 
-#sign-in-msg {
-  grid-area: signin;
+#signin-msg {
+  margin:0.5rem;
+  padding: 0;
 }
 
 #user-avatar-container{
@@ -179,6 +179,17 @@ Logo ,.cls-3 {
     border-top: 0.1em solid rgb(219, 219, 219);
 }
 
+/* Sorter on Articles Index */
+
+#sorter {
+display: flex;
+justify-self: left;
+margin-top: 1rem;
+}
+
+#order-by {
+  font-size: 1rem;
+}
 
 /* Articles Index */
 
@@ -247,6 +258,22 @@ padding-left: 10vw;
 
 .comment-card {
   border-top: 1px solid grey;
+}
+
+/* User Account Page */
+
+#account-page{
+  margin: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+#account-page-user-avatar-container{
+  width: 15rem;
+  height: 15rem;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: blue;
 }
 
 /* Loading */

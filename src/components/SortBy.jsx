@@ -14,7 +14,7 @@ const SortBy = (props) =>{
     }
 
 return (
-	<>
+	<div id="sorter">
 		<form id="sort-by" onChange={handleChange}>
 			<label htmlFor="sort-category">Sort by:</label>
 			<select name="sort-category" id="sort" defaultValue="Select">
@@ -25,9 +25,8 @@ return (
 			</select>
 		</form>
 
-		<fieldset style={{display:radioHidden}}>
-			<legend>Order by:</legend>
-			<div>
+		<fieldset id="order-by" style={{display:radioHidden}}>
+
 				<input
 					type="radio"
 					id="ascending"
@@ -37,8 +36,7 @@ return (
                     readOnly
 				/>
 				<label htmlFor="ascending">Ascending</label>
-			</div>
-			<div>
+
 				<input
 					type="radio"
 					id="descending"
@@ -48,9 +46,9 @@ return (
                     readOnly
 				/>
 				<label htmlFor="descending">Descending</label>
-			</div>
+
 		</fieldset>
-	</>
+	</div>
 );
 }
 

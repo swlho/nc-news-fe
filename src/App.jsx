@@ -8,8 +8,9 @@ import FrontPage from "./components/FrontPage";
 import ErrorRoutePage from "./components/ErrorRoutePage";
 import UserContext from './context/UserContext';
 import {useState} from 'react'
-import SignInButton from "./components/SignInButton";
+import SignIn from "./components/SignIn";
 import ArticlesIndexPage from "./components/ArticlesIndexPage";
+import UserAccountPage from "./components/UserAccountPage";
 
 function App() {
 
@@ -27,7 +28,7 @@ function App() {
 			<Logo />
 			<Header />
 			<Navbar />
-			<SignInButton/>
+			<SignIn/>
 			<div id="content">
 				<Routes>
 					<Route path="*" element={<ErrorRoutePage/>}/>
@@ -35,6 +36,7 @@ function App() {
 					<Route path="/articles" element={<ArticlesIndexPage />} />
 					<Route path="/articles/:topic" element={<ArticlesIndexPage />} />
 					<Route path="/articles/:topic/:article_id" element={<ArticlePage />} />
+					<Route path="/account" element={<UserAccountPage />} />
 				</Routes>
 			</div>
 		</UserContext.Provider>
