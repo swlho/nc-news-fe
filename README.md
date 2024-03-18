@@ -11,6 +11,7 @@ This project consolidated my understanding of making a C.R.U.D application from 
 Tech stack:
 * React.js
 * HTML/CSS
+* Express server
 * PostgreSQL (hosted via Render and ElephantSQL)
 
 This frontend is hooked into the backend project I created (which can be found at https://github.com/swlho/nc-news).
